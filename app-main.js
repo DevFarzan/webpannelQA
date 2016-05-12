@@ -109,7 +109,7 @@ app.use(passport.initialize());
 app.param('regemail', function(req, res, next, id) {
   console.log( "regemail parameter " , id ) ;
   try{ 
-    if ( id ) {
+    if ( id ) {han
           req.useremail = id;
           return next();
     } else {    
