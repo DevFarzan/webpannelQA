@@ -1,0 +1,90 @@
+<div>
+  <h2 class="page-heading">
+    <span class="page-heading-title2">Order Details</span>
+  </h2> 
+  <div class="row">  
+    <div class="col-md-12">      
+      <table  class="table table-bordered table-striped table-hover" >
+        <tr>                 
+          <td >Dates</td>
+          <td>
+            <span>Ordered On: </span>{{ formatDate(orderDetails.orderedon) | date:'EEE, MMM dd yyyy h:mm a'}}
+            <br/>
+            <span>Completed On: </span>{{orderDetails.completedon || ""}}
+          </td>
+        </tr>
+        <tr>
+          <td >Order </td>
+          <td>
+            <span>#</span>{{orderDetails.orderno}}<span><br />
+            By </span>{{orderDetails.foodiename}}<br />
+            {{orderDetails.foodie.mobile}}
+          </td>
+        </tr>
+        <tr>
+          <td >Dishes Ordered</td>
+          <td >
+            <div ng-repeat="dish in orderDetails.dishes track by $index" >
+              {{dish.servingquantity}} {{dish.name}} by {{dish.chefname || ""}}
+              <br />
+            </div>
+          </td> 
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>          
+            <select class="form-control" ng-model="orderDetails.status">   
+              <option value="Just Ordered">Just Ordered</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="In-Process">In-Process</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Received">Received</option>
+              <option value="Canceled">Canceled</option>
+            </select>
+          </td>  
+        </tr>
+        <tr>
+          <td>Pick-up Time</td>
+          <td>
+            <div ng-repeat="dish in orderDetails.dishes track by $index" >
+              {{dish.pickuptime}}
+            </div> 
+          </td> 
+        </tr>
+        <tr>
+          <td >Delivery Time </td>
+          <td>
+            <div ng-repeat="dish in orderDetails.dishes track by $index" >
+              {{dish.deliverytime}}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>
+            Rs.{{ getDishTotal(orderDetails.totalprice, orderDetails.deliverycharges) }}<br />
+            <span>Via COD</span>                    
+          </td>
+        </tr>
+        <tr>
+          <td>Payment Status</td>
+          <td>
+            
+             <select class="form-control" ng-model="orderDetails.action">   
+              <option value="Unpaid">Unpaid</option>
+              <option value="HC Paid">HC Paid</option>
+              <option value="Delivery Partner">Delivery Partner</option>
+              <option value="Accounts">Accounts</option>
+            </select>
+          </td> 
+        </tr>
+        <tr>
+          <td colspan="2">
+           
+         </td>
+        </tr>                  
+      </table>
+        
+    </div>
+  </div>  
+</div>

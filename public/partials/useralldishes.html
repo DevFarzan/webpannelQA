@@ -1,0 +1,131 @@
+ <header id="header" class="header header-inside"> 
+ 
+<div class="container main-header">
+<div class="myNewnavInside">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home" ng-click="reloadRoute()" scrollup><img src="images/logo.png" style="width: 118px;" / ></a>
+    </div>
+ 
+  </div> 
+</nav>
+</div>
+</div> 
+</header>
+ 
+<div class="category-page columns-container">
+  <div class="container" id="columns"> 
+    <div class="breadcrumb clearfix"> 
+      <a class="home" href="/home" ng-click="reloadRoute()" title="Return to Home" onmouseenter="$(this).tooltip('show')" scrollup>Home</a> 
+      <span class="navigation-pipe">&nbsp;</span> 
+      <span class="navigation_page">All Your Dishes - {{userName}} </span> 
+    </div>   
+    <div class="row">
+      
+      <div class="center_column col-xs-12 col-sm-12" id="center_column">  
+        <h2 class="page-heading text_align_center"> 
+          <span class="page-heading-title2">{{allDishesArray.length}} Dishes Listed</span> 
+        </h2>  
+
+
+        <div ng-show="false" class="alert alert-info" role="alert">
+        </div>
+
+       <!--  <div class="form-inline">       
+              <input type="text" size="100" class="form-control" ng-model="query" placeholder="Search dishes by name, type, quantity or price ... " />      
+              <i class="fa fa-refresh fa-3x" ng-click="init()"></i>
+              <a ng-href="" type="button" class="btn btn-primary btn-lg pull-right" ng-click="addADish()" scrollup>List a Dish</a>                   
+        </div>
+   -->
+        <div id="view-product-list" class="view-product-list" >
+          
+         <ul class="row product-list grid" >
+            <li class="col-sm-6 col-lg-4 col-md-4" ng-repeat="dish in allDishesArray | filter: query"   scrollup>
+               
+                        <div class="frame" > 
+                  <div class="left-block"> 
+                    <a ng-href="" title="View Details" ng-click="showDishPreview(userProfile.regisId._id, dish._id )">
+                        <img class="img-responsive" alt="product" ng-src="{{dish.dishphotos.mainphoto || defaultDishImg}}" fallback-src="/images/dishImg.png" />
+                    </a>
+                    <div class="quick-view">   
+                     <!-- <a title="Add to my wishlist" class="heart" ng-href="" > 100</a>  -->
+                     <a title="Add to compare" class="compare" ng-href=""></a> 
+                      <a title="Price" class="search" ng-show="dish.discount.status">
+                       Rs. {{getDiscount(dish)}}
+                      </a>
+                      <a title="Price" class="search" ng-hide="dish.discount.status">
+                        Rs. {{dish.price}}
+                      </a>  
+                    </div>
+                    <div class="add-to-cart" ng-click="showDishPreview(userProfile.regisId._id, dish._id )">
+                      <a title="View Details" ng-href="">View Details</a> 
+                    </div>
+                  </div>
+                  <div class="right-block">
+
+                    <h5 class="product-name col-sm-8 col-xs-8">
+                      <a class="dishname" href="" ng-click="showDishPreview(userProfile.regisId._id, dish._id )">{{dish.name}}</a>
+                    </h5>
+
+                    <h5 class="product-serve col-sm-4 col-xs-4">{{dish.servingtype}}({{dish.servingquantity}})<br>
+                     {{dish.type}}
+                    </h5>
+
+                    <div class="chef_desc">
+                      <a href ng-click="showChefProfile(record.user._id)">
+                      <div class="chef_pic">
+                        <img ng-src="{{userProfile.img}}" width="50" height="50" fallback-src="/images/chef.png"/>
+                      </div>
+
+                      <div class="chef_name">By {{userProfile.regisId.username}}<br>
+                        <!-- <img src="images/star.png" width="16" height="16" alt="star"/>
+                        <img src="images/star.png" width="16" height="16" alt="star"/> 
+                        <img src="images/star.png" width="16" height="16" alt="star"/>
+                        <img src="images/star.png" width="16" height="16" alt="star"/>
+                        <img src="images/star.png" width="16" height="16" alt="star"/> -->
+                      </div>
+
+                      <div class="chef_status">
+                        <div class="chef_approved">
+                          <img src="images/right.png" width="14" height="14" alt="Approved">
+                        </div>
+                        <div class="chef_e">
+                          <img src="images/e.png" width="14" height="14" alt="E" />
+                        </div>
+                      </div>
+                    </a>
+                    </div>
+                    <div class="content_price">
+                    <div class="price product-price col-sm-12 col-xs-12 availibility">
+                      <strong>Earliest Availability:</strong> {{dish.advancebooking.status ? "Advance Booking Only" : "Today" }}
+                    </div> 
+                    <div class="price product-price col-sm-12 col-xs-12">
+                      <strong>Qty. Available:</strong> 
+                      {{dish.servingquantity || "1"}} Dishes
+                    </div>  
+                    </div>
+                  </div>
+                </div>
+                     
+                    </li>
+            </ul>
+
+
+      </div>
+      <div class="clearfix" style="padding-bottom:30px;"></div>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

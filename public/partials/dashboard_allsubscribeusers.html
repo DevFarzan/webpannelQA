@@ -1,0 +1,39 @@
+<div class="container">
+    <h2 class="page-heading">
+        <span class="page-heading-title2">List of all subscribed users</span>
+    </h2>
+
+    <div class="row">
+        <div class="form-inline">
+            <input type="text" size="50" class="form-control" ng-model="query" placeholder="Search users by name ... " />
+
+            <span style="vertical-align: baseline;">
+                Total subscribed users : {{lenght}}
+            </span>
+            <button export-to-csv class="button btn-primary col-lg-offset-5">Download Data in csv</button>
+            <table class="table-bordered table-hover table-condensed" style="margin-top: 5px;">
+
+
+                <tr>
+
+                <th style="font-weight: bolder">S.No</th>
+                <th style="font-weight: bolder">User Email</th>
+                <th style="font-weight: bolder">Date Subscribed On
+                </th>
+
+
+                </tr>
+
+                <tr ng-repeat="User in ArraySubscriber | filter:query:strict">
+
+                    <td>
+                        {{$index + 1}}</td>
+                    <td>{{User.userEmail}}</td>
+                    <td ng-repeat="Date in User.InsertedDate">{{Date}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+  </div>

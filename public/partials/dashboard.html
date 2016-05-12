@@ -1,0 +1,158 @@
+<header id="header" class="header header-inside"> 
+  
+  <!--/.top-header --> 
+  <!-- MAIN HEADER -->
+  <div class="container-fluid main-header">
+    <div class="myNewnavInside">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid"> 
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+         
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="index.html"><img src="/images/icon.png" style="width: 48px; margin-left: 15px;" / ></a> </div>
+          
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          	  
+            <ul class="nav navbar-nav navbar-right">
+              
+              <li>
+                <form class="navbar-form  nav_custom_form" role="search">
+                  <div class="form-group searching_box">
+                    <input type="text" class="form-control searching" placeholder="Search Orders">
+                    <button type="submit" class="btn btn-default btn-search"></button>
+                  </div>
+                </form>
+              </li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Super Admin<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                 <!--  <li><a href="super-admin-dashboard.html">Dashboard</a></li>
+                  <li><a href="super-admin-dashboard.html">CMS</a></li>
+                  <li><a href="super-order-log.html">Orders</a></li>
+                  <li><a href="super-all-users.html">Users</a></li>
+                  <li><a href="super-admin-messages.html">Messages</a></li>
+                  <li><a href="super-admin-listings.html">Listings</a></li>
+                  <li><a href="super-admin-account.html">Account</a></li> -->
+                  <li><a href="" ng-click="logOut()">Logout</a></li>
+                </ul>
+              </li>
+              <!-- <li>
+                <a href="account-sadmin.html" >
+                  <strong>Account Settings</strong>
+                </a>
+              </li>
+              <li>
+                <a href="help-sadmin.html" >
+                  <strong>Help</strong>
+                </a>
+              </li> -->
+              
+            </ul>
+          </div>
+          <!-- /.navbar-collapse --> 
+        </div>
+        <!-- /.container-fluid --> 
+      </nav>
+    </div>
+
+  </div>
+  <!-- END MANIN HEADER --> 
+  
+</header>
+<!-- end header -->
+<!-- page wapper-->
+<div class="columns-container">
+  <div class="container-fluid" id="columns">
+    <!-- breadcrumb -->
+    <div class="breadcrumb clearfix"> <a class="home" href="#" title="Return to Home">Home</a> <span class="navigation-pipe">&nbsp;</span> <a class="home" href="chef-admin-dashboard.html" title="Return to Dashboard">InterviewQuestions Log</a> </div>
+    <!-- ./breadcrumb -->
+   
+    <!-- row -->
+    <div class="row">
+      <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+          <div class="side-navigation hidden-xs">
+            <ul>
+              <!-- <li><a href="super-admin-dashboard.html" title=""><i class="icon-laptop"></i>Dashboard</a></li>
+              <li><a href="#" title=""><i class="icon-laptop"></i>CMS Pages</a></li>
+               -->
+              <li>
+                <a title="" ng-click="showAllOrders()"><i class="icon-cogs"></i>
+                Add Questions<span></span>
+              </a>
+                <ul>
+                  <li><a href="#" title=""><i class="icon-angle-right"></i>Order Trackig</a></li>
+                  <li><a href="super-order-log.html" title=""><i class="icon-angle-right"></i>Order Log</a></li>
+                  <li><a href="#" title=""><i class="icon-angle-right"></i>Order Reports</a></li>
+                </ul>
+              </li>
+              
+              <li>
+                <a title="" ng-click="showAllCustomers()"><i class=""></i>
+                  View Category<span></a>
+                <ul>
+                    
+                  <li><a href="#" title=""><i class="icon-angle-right"></i>Chefs<span>4</span></a></li>
+                  <li><a href="#" title=""><i class="icon-angle-right"></i>Foodies<span>4</span></a></li>
+                </ul>
+              </li>
+
+              <!--<li>
+                <a title="" ng-click="subscribeUsers();">
+                  <i class="icon-user"></i>
+                  Subscribed Users<span>{{allSubscribeUsers.length || 0}}
+                </a>
+              </li>-->
+
+            <!--   <li><a title=""><i class="icon-ellipsis-horizontal"></i>Listings<span>5</span></a></li>
+              <li><a title=""><i class="icon-ellipsis-horizontal"></i>Accounts</a></li> -->
+            </ul>
+          </div>        
+      </div>
+
+      <!-- Center colunm-->
+      <div class="center_column static_page col-lg-10 col-xs-12 col-sm-12 col-md-9 " id="center_column" >
+          
+        <div class="responsive-menu ">
+          <div class="responsive-menu-dropdown">
+            <a title="" class="red">Dashbaord</a>
+          </div>      
+          <ul>
+           <!--  <li><a href="super-admin-dashboard.html" title=""><i class="icon-laptop"></i>Dashboard</a></li>
+            <li><a href="#" title=""><i class="icon-laptop"></i>CMS Pages</a></li>
+             -->
+            <li><a title=""><i class="icon-cogs"></i>Orders<span>13</span></a>
+              <ul>
+                <li><a href="#" title=""><i class="icon-angle-right"></i>Order Trackig</a></li>
+                <li><a href="super-order-log.html" title=""><i class="icon-angle-right"></i>Order Log</a></li>
+                <li><a href="#" title=""><i class="icon-angle-right"></i>Order Reports</a></li>
+              </ul>
+            </li>
+            
+            <li><a title=""><i class="icon-user"></i>Users</a>
+
+              <ul>
+                <li><a href="#" title=""><i class="icon-angle-right"></i>Chefs<span>4</span></a></li>
+                <li><a href="#" title=""><i class="icon-angle-right"></i>Foodies<span>4</span></a></li>
+              </ul>
+            </li>
+            <!-- <li><a title=""><i class="icon-ellipsis-horizontal"></i>Listings<span>5</span></a></li>
+            <li><a title=""><i class="icon-ellipsis-horizontal"></i>Accounts</a></li> -->
+          </ul>
+        </div> <!-- end of center coloum -->
+        
+        <div class="row" ui-view="dashboard-contents" autoscroll="false">
+
+        </div>
+    
+      </div>
+ 
+</div>
+</div>
+</div>
+</div>

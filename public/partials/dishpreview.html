@@ -1,0 +1,279 @@
+<header id="header" class="header header-inside"> 
+ 
+<div class="container main-header">
+<div class="myNewnavInside">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home" ng-click="reloadRoute()" scrollup><img src="images/logo.png" style="width: 118px;" / ></a>
+    </div>
+ 
+  </div> 
+</nav>
+</div>
+</div> 
+</header>
+
+<div class="columns-container">
+    <div class="container" id="columns">
+        
+    <div class="form-group display-block text-center" >                 
+        <span class="text-danger">Note:- Deleting a dish will NOT revert it back.</span>
+        <a href="" class="btn btn-danger" id="delDishImgBtn" ng-click="deleteADish(dish._id,dish.name)">Delete this Dish</a>
+
+        <div class="form-inline">    
+          Popular Dish: 
+          <select class="form-control" ng-model="dish.popular"  >   
+                <option value="No">No</option>
+              <option value="Yes">Yes</option>
+          </select>
+           Featured Dish: 
+          <select class="form-control" ng-model="dish.featured"  >   
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+          </select>
+          Activated Dish: 
+          <select class="form-control" ng-model="dish.isactive"  >   
+              <option value="No">Yes</option>
+              <option value="Yes">No</option>
+          </select>       
+        <a ng-href="" class="btn btn-primary" ng-click="updateDishStatus()" >Update</a>
+        </div> 
+    </div>
+   
+    <div class="breadcrumb clearfix">
+        <a class="home" href="/home" ng-click="reloadRoute()" title="Return to Home" onmouseenter="$(this).tooltip('show')" scrollup>Home</a>
+        <span class="navigation-pipe">&nbsp;</span>
+        <span class="navigation_page">{{dish.name}}</span>
+    </div>
+        
+    <div class="row">            
+            <!-- Center colunm-->
+            <div class="center_column col-xs-12 col-sm-12" id="center_column">
+                <!-- Product -->
+                    <div id="product">                    	
+                        <div class="primary-box row">                        	
+                            <div class="pb-left-column col-xs-12 col-sm-5">                            
+                                <div class="product-image">
+                                    <div class="product-img-thumb" >
+                                        <button class="btn btn-primary edit" style="float: none; position: absolute;  z-index: 99; right:15px;" ng-click="editCurrentDishDetails()" scrollup>Edit</button>
+                                     
+                                        <img class="dishMainImg imgTransition" ng-src="{{mainPreviewImg}}"  />  
+                                    </div>     
+                                    <div  class="padding-top10px" > 
+                                        <div class="dishthumbDiv handcursoer" ng-click="setMainPreviewImg(1)">
+                                          <img class="dishthumbImg" ng-show="hideDefaultImage(dish.dishphotos.mainphoto)" ng-src="{{dish.dishphotos.mainphoto}}" /> 
+                                        </div>
+                                        <div class="dishthumbDiv handcursoer" ng-click="setMainPreviewImg(2)" >
+                                          <img class="dishthumbImg" ng-show="hideDefaultImage(dish.dishphotos.secphoto)" ng-src="{{dish.dishphotos.secphoto}}" />                                               
+                                        </div>
+                                        <div class="dishthumbDiv handcursoer" ng-click="setMainPreviewImg(3)" >    
+                                          <img class="dishthumbImg" ng-show="hideDefaultImage(dish.dishphotos.thirdphoto)" ng-src="{{dish.dishphotos.thirdphoto}}" />                                             
+                                        </div>
+                                        
+                                     </div>
+                                </div>
+                               
+                            </div>
+                            <div class="pb-right-column col-xs-12 col-sm-7">
+                                <h1 class="product-name">{{dish.name}}</h1>
+                                <h4 style="color:#000; margin-top:10px;">by <a ng-href="">{{businessname || userName}}</a></h4>                               
+                                <div class="product-price-group" ng-show="dish.discount.status" >
+                                    <span class="price">PKR {{getDiscount(dish)}}</span>
+                                    <span class="old-price">PKR {{dish.price}}</span>
+                                    <span class="discount">-{{dish.discount.discoutamount}}</span>
+                                     
+                                </div>
+                                <div class="product-price-group" ng-hide="dish.discount.status" >
+                                    <span class="price">PKR {{dish.price}}</span>
+                                     
+                                     
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="info-orther">
+                                	<p class="bordered_p">
+                                        <strong>Cuisine:</strong> {{dish.cuisine}}</p>
+                                    <p class="bordered_p">
+                                        <strong>{{dish.servingtype}}:</strong> {{dish.servingquantity}}</p>
+                                    <p class="bordered_p">
+                                        <strong>Dish type:</strong> {{dish.type}}</p>
+                                    <p class="bordered_p">
+                                        <strong>Special Feature:</strong>
+                                        <span ng-hide="dish.features.length">
+                                                None
+                                        </span>
+                                        <span ng-repeat="feature in dish.features">
+                                                {{feature}}{{$last ? '' : ', '}}
+                                        </span>
+                                    </p>
+                                </div>
+                                <div class="clearfix"></div>
+                                
+                                <div class="row">
+                                	<div class="col-lg-6 col-md-6" ng-show="dish.regdishstatus">
+                                    	<div class="form-option">
+                                        	
+                                       		<h2>Available For {{previewRegDishLabel}}</h2>
+                                            <div class="attributes">
+
+                                                <div class="attribute-label">
+                                                    <strong>Order by:</strong>
+                                                </div>
+                                                <div class="attribute-list">{{previewRegDishDetails.orderby}}
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                                <div class="attribute-label">
+                                                    <strong>Available Quantity:</strong>
+                                                </div>
+                                                <div class="attribute-list">{{previewRegDishDetails.qty}} Dishes
+                                                </div>
+
+                                            	<div class="clearfix"></div>
+                                                <div class="attribute-label">
+                                                    <strong>Delivery After:</strong>
+                                                </div>
+                                                <div class="attribute-label">{{previewRegDishDetails.readyby}}
+                                                </div>  
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <div class="form-option">    
+                                                <h3>Order For {{previewRegDishLabel}}:</h3>
+                                                <div class="attributes">
+                                                    <div class="attribute-label"><strong>Qty:</strong></div>
+                                                    <div class="attribute-list product-qty">
+                                                        <div class="qty">
+                                                            <input id="option-product-qty" type="text" value="{{previewRegDishDetails.qty}}" //>
+                                                        </div>
+                                                        <div class="btn-plus">
+                                                            <a href="#" class="btn-plus-up">
+                                                                <i class="fa fa-caret-up"></i>
+                                                            </a>
+                                                            <a href="#" class="btn-plus-down">
+                                                                <i class="fa fa-caret-down"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="button-group">
+                                                <a class="btn-add-cart" href="#">Order Now</a>
+                                            </div>
+                                    	</div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-option" ng-show="dish.advancebooking.status" > 
+                                        	
+                                            <h2 >Advance Booking</h2>
+                                            <div class="clearfix"></div>
+                                            <div class="attributes">
+                                            	<div class="attribute-label"><strong>Min. Qty:</strong></div><div class="attribute-label">{{dish.advancebooking.mindish}}</div>
+                                                <div class="clearfix"></div>
+                                                
+                                                <div class="attribute-label"><strong>Order by:</strong></div><div class="attribute-list">{{dish.advancebooking.orderby}}</div>
+                                                <div class="clearfix"></div>
+												<div class="attribute-label" style="width:13px;"><strong>*</strong></div><div class="attribute-list">Depends on chef's availability</div>
+                                            </div>
+                                            
+                                            
+                                            <div class="form-option">
+                                            <h3>Order For Advance Booking:</h3>
+                                             
+                                            <div class="attributes">
+                                                <div class="attribute-label" style="width:30px;">
+                                                    <strong>Qty:</strong>
+                                                </div>
+                                                <div class="attribute-list product-qty" style="width:60px; float:left;">
+                                                    <div class="qty">
+                                                        <input id="option-product-qty" type="text" value="{{dish.advancebooking.mindish}}" />
+                                                    </div>
+                                                    <div class="btn-plus">
+                                                        <a href="" class="btn-plus-up">
+                                                            <i class="fa fa-caret-up"></i>
+                                                        </a>
+                                                        <a href="" class="btn-plus-down">
+                                                            <i class="fa fa-caret-down"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="attribute-label" style="width:35px; margin-left:15px;"><strong>For:</strong></div>
+                                                <div class="attribute-list">
+                                                    <select>
+                                                        <option value="1">Saturday</option>
+                                                        <option value="2">Sunday</option>
+                                                        <option value="3">Monday</option>
+                                                        <option value="3">Tuesday</option>
+                                                        <option value="3">Wednesday</option>
+                                                        <option value="3">Thrusday</option>
+                                                        <option value="3">Friday</option>
+                                                    </select>                                  
+                                                </div>
+                                            </div>                                            
+                                            </div>
+                                            <div class="button-group">
+                                                <a class="btn-add-cart" href="">Order Now</a>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+
+                                </div>
+                                <div class="row">        
+                                     <div class="col-lg-12 col-md-12">
+                                        <div class="form-option" ng-show="dish.premake.status" > 
+                                            
+                                            <h2 >Available from {{dish.premake.fromdate}} to {{dish.premake.todate}}</h2>
+                                            <div class="clearfix"></div>
+                                            <div class="attributes">
+                                                <div class="attribute-label"><strong>Quantity:</strong></div><div class="attribute-label">{{dish.premake.quantity}}</div>
+                                                <div class="clearfix"></div>
+                                                
+                                                <div class="attribute-label"><strong>Order by:</strong></div><div class="attribute-list">{{dish.premake.orderby}}</div>
+                                                <div class="clearfix"></div>
+                                                 
+                                            </div>
+                                             
+                                            <div class="button-group">
+                                                <a class="btn-add-cart" href="">Order Now</a>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+
+                                </div>
+                                 
+                            </div>
+                        </div>
+                        <!-- tab product -->
+                        <div class="pb-left-column col-xs-12 col-sm-12" style=" padding-right: 0; padding-left: 0;">
+                        	<div class="product-tab">
+                            <ul class="nav-tab">  
+                            <button class="btn btn-primary edit" ng-click="editCurrentDishDetails()" scrollup>Edit</button>                          
+                                <li class="active">
+                                    <a aria-expanded="false" data-toggle="tab" href="#product-detail">Dish Details</a>
+                                </li> 
+                            </ul>
+                            <div class="tab-container">                            	
+                                <div id="product-detail" class="tab-panel active">
+                                     {{dish.descdish}}
+                                </div>                                 
+                            </div>
+                        </div>
+                        </div>                        
+                        <!-- ./tab product -->
+                        <div class="clearfix" style="margin-bottom: 20px;"></div>                      
+                    </div>
+                 
+            </div>
+            <!-- ./ Center colunm -->
+        </div>
+        <!-- ./row-->
+    </div>
+</div>

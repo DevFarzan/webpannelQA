@@ -1,0 +1,637 @@
+ 
+<header id="header" class="header header-inside"> 
+ 
+<div class="container main-header">
+<div class="myNewnavInside">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home" ng-click="reloadRoute()" scrollup><img src="images/logo.png" style="width: 118px;" / ></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">           
+      <ul class="nav navbar-nav navbar-right">
+               
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ng-href="" ng-click="showListDishesScreen()">My Dishes</a></li>
+            <li><a ng-href="/preview" ng-click="">My Profile</a></li>
+            <li><a ng-href="" ng-click="logOut()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div> 
+  </div> 
+</nav>
+</div>
+</div> 
+</header>
+<!-- <br><br><br><br> -->
+<div class="category-page columns-container">
+  <div class="container" id="columns"> 
+    <!-- breadcrumb -->
+    <div class="breadcrumb clearfix"> 
+      <a class="home" href="/home" ng-click="reloadRoute()" title="Return to Home" onmouseenter="$(this).tooltip('show')" scrollup>Home</a> 
+      <span class="navigation-pipe">&nbsp;</span> <span class="navigation_page">List Your Dish</span> 
+    </div>
+   
+    <div class="row"> 
+      
+      <div class="center_column col-xs-12 col-sm-12" id="center_column"> 
+ 
+        <h2 class="page-heading text_align_center"> <span class="page-heading-title2">List Your Dish</span> </h2>
+        <!-- Content page -->
+        <div class="content-text clearfix">
+          <section>
+            <div class="container">
+              <div class="row">
+                <div class="board">                    
+                  <div class="board-inner">
+                    <p>* Hover or tap on (?) for tips.</p>
+                    <ul class="nav nav-tabs" id="listDishTab">
+                      <div class="liner"></div>
+                      <li class="active"> 
+                        <a href="#dishDetailsTab" ng-click="showTabs('dishDetailsTab')" title="Tell foodies about your dish." onmouseenter="$(this).tooltip('show')"> <span class="round-tabs one">
+                         <i class="glyphicon glyphicon-cutlery"></i> </span>
+                         </a>
+                         <strong>1. Dish Details</strong>
+                       </li>
+                      <li class="two">
+                        <a href="#dishPriceTab" ng-click="showTabs('dishPriceTab')" title="Let foodies know your dish price." onmouseenter="$(this).tooltip('show')"> <span class="round-tabs two"> PKR </span>
+                         </a> <strong>2. Price &amp Promotions</strong> 
+                      </li>
+                      <li class="three">
+                        <a href="#dishAvailabilityTab" ng-click="showTabs('dishAvailabilityTab')" title="Let foodies know when your dish will be available." onmouseenter="$(this).tooltip('show')"> 
+                          <span class="round-tabs three">
+                         <i class="glyphicon glyphicon-calendar"></i></span></a> 
+                       <strong>3. Availability</strong> 
+                      </li>
+                    </ul>
+                  </div>
+                  <form>
+                    <div class="tab-content">
+                      <div class="tab-pane fade in active" id="dishDetailsTab">
+                        <div class="form_cover">
+                          <div class="form-group" id="dishnameGroupID" >
+                            <label for="dishname" >ENTER DISH NAME <a ng-href="" class="glyphicon glyphicon-question-sign" title="Enter a descriptive name for your dish which will appeal to foodies in 50 characters or less." onmouseenter="$(this).tooltip('show')"></a> </label>
+                            <strong>{{50-dish.name.length}} characters remaining</strong>
+                            <div class="wrap_input">
+                              <input type="text" class="form-control" id="dishnameID" placeholder="Tomato Rosemary Chicken Spaghetti or Chicken and Egg Biryani." ng-model="dish.name" required ng-keyup="dishnameError=''" />
+                              <span ng-model="dishnameError" ng-show="dishnameError" class="alert-danger display-block">{{dishnameError}}</span>
+                            </div>
+                          </div>
+                          <div class="form-group" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;">
+                            <label for="dishname">SELECT DISH TYPE <a ng-href="" class="glyphicon glyphicon-question-sign" title="Select which type of dish you are listing." onmouseenter="$(this).tooltip('show')"></a></label>
+                          </div>
+                          <div class="">
+                            <div class="radio-wrap third">
+                              <input type="radio" value="Main Dish" class="custom-radio" id="litres" name="fuelunits"  ng-model="dish.type"/>
+                              <label for="litres" title="The main dish is the primary dish in a meal consisting of several courses." onmouseenter="$(this).tooltip('show')">Main Dish</label>
+                               
+                            </div>
+
+                            <div class="radio-wrap third">
+                              <input type="radio" value="Side Dish" class="custom-radio" id="usgallons" name="fuelunits" ng-model="dish.type" />
+                              <label for="usgallons" title="A side dish is a food item that accompanies the main dish at a meal." onmouseenter="$(this).tooltip('show')">Side Dish</label>
+                                
+                            </div>
+
+                            <div class="radio-wrap third">
+                              <input type="radio" value="Snack" class="custom-radio" id="new" name="fuelunits" ng-model="dish.type"  />
+                              <label for="new" title="A snack is a small amount of food eaten between meals." onmouseenter="$(this).tooltip('show')">Snack</label>
+                              
+                            </div>
+
+                            <div class="radio-wrap third">
+                              <input type="radio" value="Dessert" class="custom-radio" id="desert" name="fuelunits" ng-model="dish.type"/>
+                              <label for="desert" title="Dessert is the sweet dish usually eaten at the end of a meal." onmouseenter="$(this).tooltip('show')">Dessert</label>
+                               
+                            </div>
+
+                            <div class="radio-wrap third">
+                              <input type="radio" value="Other" class="custom-radio" id="ukgallons" name="fuelunits" ng-model="dish.type" />
+                              <label for="ukgallons" title="Select “Other” if your dish does not fall under any of the given categories, e.g. sauces or pickles." onmouseenter="$(this).tooltip('show')">Other</label>
+                               
+                            </div>
+
+                          </div>
+                          <div class="form-group" style="margin-bottom:0; padding-top:30px; margin-top:80px; border-top:1px solid #ccc;">
+                            <label for="dishname">DESCRIBE YOUR DISH <a href="" class="glyphicon glyphicon-question-sign" title="Describe the flavours of your dish and what makes your dish special to appeal to foodies in 300 characters or less." onmouseenter="$(this).tooltip('show')"></a></label>
+                            <strong>{{300 - dish.descdish.length}}  characters remaining</strong>
+                            <div class="wrap_input">
+                              <textarea class="form-control" rows="3" placeholder="e.g. Basmati rice flavoured with exotic spices and my secret ingredient and layered with chicken and potatoes cooked in a thick, savory and slightly spicy gravy. This is definitely a dish for a special occasion. Mixed well before serving." ng-model="dish.descdish" id="dishdescdishId" ng-keyup="descdishError=''"></textarea>
+                              <span ng-model="descdishError" ng-show="descdishError" class="alert-danger display-block">{{descdishError}}</span>
+                            </div>
+                          </div>
+                          <div class="form-group" style="margin-bottom:0; padding-top:30px; margin-top:80px; border-top:1px solid #ccc;">
+                            <label for="dishname">DISH QUANTITY <a href="" class="glyphicon glyphicon-question-sign" title="Select the size of your dish. This may be the amount of people the dish serves or a standard measurement of food, such as dozens, litres or pounds." onmouseenter="$(this).tooltip('show')"></a></label>
+                            <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-4 col-xs-8">
+                                <div class="wrap_input" style="width:75%; margin-bottom:25px;">
+                                  <select class="form-control" id="dishservingtypeId" ng-model="dish.servingtype" ng-change="servingtypeError=''">  
+                                    <option value="Dozens">Dozens:</option>
+                                    <option value="KGs">Kilograms:</option>
+                                    <option value="Litres">Litres:</option>
+                                    <option value="Pounds">Pounds:</option>
+                                    <option value="Serves">Serves:</option>
+                                    <option value="Grams">Grams:</option>
+                                    <option value="Millilitre">Millilitre:</option>
+                                  </select>
+                                  <span ng-model="servingtypeError" ng-show="servingtypeError" class="alert-danger display-block">{{servingtypeError}}</span>
+                                </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                  <div class="wrap_input" style="width:55px; margin-bottom:25px;">
+                                    <input type="text" class="form-control" ng-model="dish.servingquantity"  />
+                                     
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form_cover" style="margin-top:20px;">
+                          <div class="row marginzero">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group" style="">
+                                <label for="dishname">CUISINE <a href="" class="glyphicon glyphicon-question-sign" title="Where in the world does your dish come from? What is its origin and what part of the world do its flavors come from?"  onmouseenter="$(this).tooltip('show')"></a></label>
+                                <h3>Select the Cuisine of your dish.</h3>
+                                <div class="wrap_input">
+                                  <select class="form-control" ng-model="dish.cuisine">
+                                    <option value="">Select</option>
+                                    <option value="American">American</option>
+                                    <option value="Asian Fusion">Asian Fusion</option>
+                                    <option value="BBQ">BBQ</option>
+                                    <option value="British">British</option>
+                                    <option value="Caribbean">Caribbean</option>
+                                    <option value="Chinese">Chinese</option>
+                                    <option value="Continental">Continental</option>
+                                    <option value="East European">East European</option>
+                                    <option value="European">European</option>
+                                    <option value="French">French</option>
+                                    <option value="Indian">Indian</option>
+                                    <option value="Italian">Italian</option>
+                                    <option value="Japanese">Japanese</option>
+                                    <option value="Lebanese">Lebanese</option>
+                                    <option value="Mexican">Mexican</option>
+                                    <option value="Moroccan">Moroccan</option>
+                                    <option value="Pakistani">Pakistani</option>
+                                    <option value="Portuguese">Portuguese</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="Srilankan">Srilankan</option>
+                                    <option value="Thai">Thai</option>
+                                    <option value="Turkish">Turkish</option>
+                                    <option value="Vietnamese">Vietnamese</option>
+                                    <option value="Other">Other</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <div class="form-group" style="">
+                                <label for="dishname">SPECIAL FEATURES <a href="" class="glyphicon glyphicon-question-sign" title="Does your dish have any special features that might interest foodies? Is it sugar free, gluten free, low calorie, etc.? You can select multiple features or leave this blank if not applicable." onmouseenter="$(this).tooltip('show')"></a></label>
+                                <h3>Choose from dropdown and click orange "ADD" button.</h3>
+                                <div class="wrap_input" style="float:left; width:75%;">  
+                                  
+                                  <select class="form-control" id="mySelect" ng-model="selectedFeature" ng-options="feature.name for feature in listOfFeatures">
+                                        <option value="">None</option>
+                                  </select>
+
+                                </div>
+                                <div class="wrap_input plusbuttonwrap" >
+                                  <button class="btn  btn-primary plusbutton" ng-click="AddFeature()">ADD</button>
+                                </div>
+                                <div class="clearfix"></div>
+                                 <div class="row" style="padding-left: 15px;">
+                                    <div class="wrap_input tag" ng-repeat="feature in selListOfFeaturesArray">{{feature}}
+                                        <div class="delete_image_small" style="width:16px; height:16px;">
+                                          <a ng-href="" ng-click="removeFeature(feature)"></a>
+                                        </div>
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form_cover" style="margin-top:20px;">
+                          <div class="form-group">
+                            <label for="dishname">UPLOAD PHOTOS OF YOUR DISH </label>
+                            <h3>Upload appetizing images to convince foodies to order your food. You may upload 3 images but choose only one as the main display image.</h3>
+                            <div class="clearfix"></div>
+                            <div class="row marginzero"> 
+                               
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  upload_image">
+                                <img ng-src="{{dish.dishphotos.mainphoto}}" style="height:250px;" /> 
+                                <div class="delete_image"><a ng-href="" ng-click="deleteDishImage(1)"></a></div>
+                                <label class="radio-inline selectthisimage">  
+                                  <input type="file" onchange="angular.element(this).scope().uploadFile(this.files, angular.element(this).scope().usermobile ,'mainimg' )" ng-model="dish.dishphotos.mainphoto" ng-file-select="onFileSelect($files)" />
+                                   This will be the primary photo.
+                                 </label> 
+                                  
+                              </div>
+
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  upload_image"> 
+                                <img ng-src="{{dish.dishphotos.secphoto}}" title="Image" alt="image" style="height:250px;"  />
+                               <div class="delete_image"><a ng-href="" ng-click="deleteDishImage(2)"></a></div>
+                                <input type="file" onchange="angular.element(this).scope().uploadFile(this.files, angular.element(this).scope().usermobile ,'dishimg1' )" ng-model="dish.dishphotos.secphoto" ng-file-select="onFileSelect($files)" />
+                                  
+                              </div>
+
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12  upload_image"> 
+                                <img ng-src="{{dish.dishphotos.thirdphoto}}" title="Image" alt="image" style="height:250px;"  />
+                                <div class="delete_image"><a ng-href="" ng-click="deleteDishImage(3)"></a></div>
+                                <input type="file" onchange="angular.element(this).scope().uploadFile(this.files, angular.element(this).scope().usermobile ,'dishimg2' )" ng-model="dish.dishphotos.thirdphoto" ng-file-select="onFileSelect($files)" />
+                                
+                              </div>                               
+                               
+                            </div>
+                            <div id="dishPicProgId" style="width:100%;">
+                              <span class='glyphicon glyphicon-refresh glyphicon-refresh-animate text-primary'></span> Uploading image, please wait...
+                            </div>
+                             <span id="dishPicProgFailedMsgId" class="alert-danger display-block">File upload failed, please try again.</span>
+                          </div>
+                        </div>
+                        <div class="form-group next1" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;"> 
+                          <a ng-href="" id="btnListDishSaveBtn1" type="submit" data-toggle="tab" class="btn btn-primary pull-right" ng-click="saveListDishDetails(dish,'first')">Save and Continue</a> 
+                        </div>
+
+                      </div>
+
+                      <div class="tab-pane fade" id="dishPriceTab">
+                        <div class="form_cover" >
+                          <div class="form-group" style="">
+                            <label for="dishname">PRICE</label>
+                            <div class="clearfix"></div>
+                            <h3>Enter the price of your dish.</h3>
+                            <div class="wrap_input input-group" style="width:200px;">
+                              <div class="input-group-addon">RS</div>
+                              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="dish.price" ng-keyup="priceError=''" />
+                              <span ng-model="priceError" ng-show="priceError" class="alert-danger display-block">{{priceError}}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form_cover" style="margin-top:40px;">
+                          <div class="form-group" >
+                            <label>PROMOTIONS</label>
+                            <div class="clearfix"></div>
+                            <h3 ng-click="togglerDivs('offerDiscountDiv','chBoxOfferDiscount')">
+                              <input type="checkbox" id="chBoxOfferDiscount" name="colorCheckbox" value="promotions" ng-model="dish.discount.status"   />
+                              Offer discount? <a style="padding-top: 0;" href="" class="glyphicon glyphicon-question-sign" title="Check this box if you would you like to offer a discount on the usual price of your dish. Discounts appeal to customers and may increase sales." onmouseenter="$(this).tooltip('show')"></a>
+                            </h3>
+                            <div class="promotions" id="offerDiscountDiv">
+                              <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
+                                  <h3>Select the promotion you want to offer on your dish:</h3>
+                                  <div class="wrap_input" style="width:75%; margin-bottom:25px;">
+                                    <select class="form-control" id="mySelect" ng-model="dish.discount.discoutamount">
+                                      <option value="10%">10%</option>
+                                      <option value="20%">20%</option>
+                                      <option value="Buy 1 Get 1 Free">Buy 1 Get 1 Free</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                  <h3>Promotion valid from:</h3>
+                                  <div class="form-group">
+                                    <div class="wrap_input" style="width:100%; margin-bottom:25px;">
+                                      <input type='text' class="form-control" id='dtPickerDiscFrom' ng-model="dish.discount.fromdate" />
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                  <h3>Promotion valid till:</h3>
+                                  <div class="form-group">
+                                    <div class="wrap_input" style="width:100%; margin-bottom:25px;">
+                                      <input type='text' class="form-control" id='dtPickerDiscTo' ng-model="dish.discount.todate" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group next2" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;"> 
+                          <a href="#settings" id="btnListDishSaveBtn2" type="submit" data-toggle="tab" class="btn btn-primary pull-right" ng-click="saveListDishDetails(dish,'second')" >Save and Continue</a> 
+                        </div>
+
+                      </div>
+
+
+                      <div class="tab-pane fade" id="dishAvailabilityTab">
+                        <div class="form_cover" style="margin-top:40px;">
+                          <div class="form-group" >
+                            <label>When is your dish available?</label>
+                            <div class="clearfix"></div>
+                            <div class="wrap_adv_booking">
+                              <div class="wrap_input" style="margin-bottom:30px;">
+                                <h3 class="bote" ng-click="togglerDivs('dishAdvanceDiv','chBoxAdvDishes')">
+                                  <input type="checkbox" id="chBoxAdvDishes" name="colorCheckbox" value="adv_booking" ng-model="dish.advancebooking.status" />
+                                  I take orders against advance booking. <a href="" class="glyphicon glyphicon-question-sign" title="Check this box if you cook this dish against advance orders. Also, select the minimum dishes required to place an advance order and the time needed to prepare the dishes." onmouseenter="$(this).tooltip('show')"></a></h3>
+                              </div>
+                              <div class="adv_booking" id="dishAdvanceDiv">
+                                <div class="row">
+                                  <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                                    <h3 style="float:left; line-height: 52px; margin-bottom: 0;">Minimum dishes required:</h3>
+                                    <div class="wrap_input" style="float:left; margin-left:25px;">
+                                      <select class="form-control" id="mySelect" ng-model="dish.advancebooking.mindish">
+                                         
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">Order by:</h3>
+                                      <div class="wrap_input" style=" float:left; margin-right: 25px; margin-left:25px;">
+                                        <select class="form-control" id="mySelect" ng-model="dish.advancebooking.orderby">
+                                          <option value="12 Hours">12 Hours</option>
+                                          <option value="24 Hours">24 Hours</option>
+                                          <option value="36 Hours">36 Hours</option>
+                                          <option value="48 Hours">48 Hours</option>
+                                          <option value="72 Hours">72 Hours</option>
+                                        </select>
+                                      </div>
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">in advance</h3>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="wrap_pre_make"  >
+                              <div class="wrap_input" style="margin-bottom:30px;">
+                                <h3 class="bote" ng-click="togglerDivs('dishPremakeDiv','chBoxPreMakeDishes')">
+                                  <input type="checkbox" ng-model="dish.premake.status" id="chBoxPreMakeDishes" name="colorCheckbox" value="pre_make"  />
+                                  I pre-make a limited number of this dish. <a href="" class="glyphicon glyphicon-question-sign" title="Check this box if you cook this dish in large batches. This option usually applies to seasonal dishes. Also, select the dates during which the dish will be available and how many dishes you will be making." onmouseenter="$(this).tooltip('show')"></a>
+                                </h3>
+                              </div>
+                              <div class="pre_make" id="dishPremakeDiv">
+                                <div class="row">
+                                  <div class="col-lg-6 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">Dish will be avaiable from:</h3>
+                                      <div class="wrap_input" style="width:auto; float:right; margin-left: 25px;">
+                                        <input type='text' class="form-control" id='dtPickerPremakeFrom' ng-model="dish.premake.fromdate" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">after:</h3>
+                                      <div class="wrap_input" style="width:auto; float:right; margin-left: 25px;">
+                                        <select class="form-control" id="mySelect" ng-model="dish.premake.aftertime" >
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <hr class="hr1">
+                                  <div class="col-lg-6 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">Until:</h3>
+                                      <div class="wrap_input" style="width:auto; float:right; margin-left: 25px;">
+                                         <input type='text' class="form-control" id='dtPickerPremakeTo' ng-model="dish.premake.todate" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">by:</h3>
+                                      <div class="wrap_input" style="width:auto; float:right; margin-left: 25px;">
+                                        <select class="form-control" id="mySelect"  ng-model="dish.premake.orderby">
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <hr class="hr1">
+                                  <div class="col-lg-6 col-md-7 col-sm-7 col-xs-12">
+                                    <div class="form-group">
+                                      <h3 style="float:left; line-height: 52px; margin-bottom: 0; ">Dishes I will be making:</h3>
+                                      <div class="wrap_input" style="width:auto; float:right; margin-left: 25px;">
+                                        <input type="text" class="form-control" ng-model="dish.premake.quantity" />
+                                        
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="wrap_regular_make" >
+                              <div class="wrap_input" style="margin-bottom:30px;">
+                                <h3 class="bote" ng-click="togglerDivs('dishRegularMakeDiv','chBoxRegulrDishes')">
+                                  <input type="checkbox" ng-model="dish.regdishstatus" id="chBoxRegulrDishes" name="colorCheckbox" value="regular_make"  />
+                                  I regularly have this dish available to order. <a href="" class="glyphicon glyphicon-question-sign" title="Check this box if you cook this dish regularly. Also, select the days on which this dish will be available and when." onmouseenter="$(this).tooltip('show')"></a>
+                                </h3>
+                              </div>
+                              <div class="regular_make" id="dishRegularMakeDiv">
+                                <div class="row clone" ng-repeat="dishday in regularDishesArray"  >
+                                  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 dayx">
+                                    <div class="form-group">
+                                      <h3 >DAY:</h3>
+                                      <div class="wrap_input">
+                                        <select class="form-control" ng-model="dishday.weekday"  >
+                                          <option value="MON">MON</option>
+                                          <option value="TUE">TUE</option>
+                                          <option value="WED">WED</option>
+                                          <option value="THR">THR</option>
+                                          <option value="FRI">FRI</option>
+                                          <option value="SAT">SAT</option>
+                                          <option value="SUN">SUN</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 orderx">
+                                    <div class="form-group">
+                                      <h3>ORDER BY:</h3>
+                                      <div class="wrap_input">
+                                        <select class="form-control" ng-model="dishday.orderby">
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 readyx">
+                                    <div class="form-group">
+                                      <h3>READY BY:</h3>
+                                      <div class="">
+                                        <select class="form-control" style="width:47%; display:inline;" ng-model="dishday.readyby" >
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+										  <option value="90 mins">90 mins</option>
+                                        </select>
+                                        <select class="form-control" style="width:47%; display:inline;" ng-model="dishday.readyday">
+                                          <option value="Same day">Same day</option>
+                                          <option value="Next day">Next day</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pickupx">
+                                    <div class="form-group">
+                                      <h3>PICKUP BY:</h3>
+                                      <div class="" style="float:left; line-height: 44px; width: 100%; margin-bottom: 15px;">
+                                        <select class="form-control" style="width:45%; display:inline;" ng-model="dishday.pickfrom">
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+                                        </select>
+                                        to
+                                        <select class="form-control" style="width:46%; display:inline;" ng-model="dishday.pickto">
+                                          <option value="09:00 AM">09:00 AM</option>
+                                          <option value="10:00 AM">10:00 AM</option>
+                                          <option value="11:00 AM">11:00 AM</option>
+                                          <option value="12:00 PM">12:00 PM</option>
+                                          <option value="01:00 PM">01:00 PM</option>
+                                          <option value="02:00 PM">02:00 PM</option>
+                                          <option value="03:00 PM">03:00 PM</option>
+                                          <option value="04:00 PM">04:00 PM</option>
+                                          <option value="05:00 PM">05:00 PM</option>
+                                          <option value="06:00 PM">06:00 PM</option>
+                                          <option value="07:00 PM">07:00 PM</option>
+                                          <option value="08:00 PM">08:00 PM</option>
+                                          <option value="09:00 PM">09:00 PM</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 qtyx">
+                                    <div class="form-group">
+                                      <h3 >QTY:</h3>
+                                      <div class="">
+                                        <select class="form-control" ng-model="dishday.qty">
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
+                                          <option value="3">3</option>
+                                          <option value="4">4</option>
+                                          <option value="5">5</option>
+                                          <option value="6">6</option>
+                                          <option value="7">7</option>
+                                          <option value="8">8</option>
+                                          <option value="9">9</option>
+                                          <option value="10">10</option>
+                                          <option value="11">11</option>
+                                          <option value="12">12</option>
+                                          <option value="13">13</option>
+                                          <option value="14">14</option>
+                                          <option value="15">15</option>
+                                          <option value="16">16</option>
+                                          <option value="17">17</option>
+                                          <option value="18">18</option>
+                                          <option value="19">19</option>
+                                          <option value="20">20</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <hr class="hr1">
+                                </div>
+                                <div class="placer"></div>
+
+                                <a ng-href="" ng-show="toShowResulargDishAddBtn()" class="clone_trigger btn btn-primary" ng-click="addAnotherDishDay()">Add another day</a> 
+                                <a ng-href="" ng-show="toShowResulargDishDeletBtn()" class="remove_trigger remove_btn btn btn-primary" ng-click="removeLastDishDay()">Remove last day </a> 
+
+                              </div>
+                            </div>
+ 
+                          </div>
+                        </div>
+                        <div class="form-group next2" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;">
+                         <a href="#" type="submit" id="BtnDishListSavePreview" class="btn btn-primary pull-right" ng-click="saveListDishDetails(dish,'third')" >Submit and Preview</a>
+                          </div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- ./Content page --> 
+      </div>
+      <!-- ./ Center colunm --> 
+    </div>
+    <!-- ./row--> 
+  </div>
+</div>
+
+
+
+ 

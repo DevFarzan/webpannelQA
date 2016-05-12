@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="form-inline">
+        <table class=" table-bordered table-hover table-condensed" style="width:50%;margin-left:43px;">
+            <thead>
+            <tr>
+                <th style="font-weight: bold;
+    font-size: 20px;">Questions</th>
+                <th style="font-weight: bold;
+    font-size: 20px;">Answers</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+
+            <tr ng-repeat="questionAnswer in answerArray">
+                <td class="text-center" ng-repeat="question in questionAnswer.Question">
+                    {{question}}
+                </td>
+                <td class="text-center" ng-repeat="answer in questionAnswer.answer">
+                    {{answer}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

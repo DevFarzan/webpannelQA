@@ -1,0 +1,336 @@
+<header id="header" class="header header-inside"> 
+ 
+<div class="container main-header">
+<div class="myNewnavInside">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home" ng-click="reloadRoute()" scrollup><img src="images/logo.png" style="width: 118px;" / ></a>
+    </div>
+ 
+  </div> 
+</nav>
+</div>
+</div> 
+</header>
+<!-- <br><br><br><br> -->
+<div class="columns-container">
+  <div class="container" id="columns"> 
+    <!-- breadcrumb -->
+    <div class="breadcrumb clearfix">
+      <a class="home" href="/home" ng-click="reloadRoute()" title="Return to Home" onmouseenter="$(this).tooltip('show')" scrollup>Home</a> <span class="navigation-pipe">&nbsp;</span> 
+      <span class="navigation_page">HomeChef Profile</span> 
+    </div>
+    <!-- ./breadcrumb --> 
+    
+    <div class="row"> 
+      <!-- Left colunm --> 
+      <!-- ./left colunm --> 
+      <!-- Center colunm-->
+        <div class="center_column col-xs-12 col-sm-12" id="center_column"> 
+          <!-- page heading-->
+          <h2 class="page-heading text_align_center" > <span class="page-heading-title2">CREATE YOUR HOMECHEF PROFILE</span> </h2>
+
+          <!-- Content page -->
+          <div class="content-text clearfix">
+            <section>
+            <div class="container">
+              <div class="row">
+                <div class="board">
+                    <div class="board-inner">
+                      <ul class="nav nav-tabs" id="profileTab">
+                        <div class="liner"></div>
+                        <li class="active"> 
+                          <a href="#profileAboutTab" ng-click="showTabs('profileAboutTab')" title="Tell foodies about yourself." onmouseenter="$(this).tooltip('show')"> <span class="round-tabs one"> <i class="glyphicon glyphicon-user"></i> </span> </a> 
+                          <strong>1. About Me</strong> 
+                        </li>
+                        <li class="two"> 
+                          <a href="#profileCookingTab" ng-click="showTabs('profileCookingTab')"  title="Tell foodies more about your cooking style." onmouseenter="$(this).tooltip('show')"> <span class="round-tabs two"> <i class="glyphicon glyphicon-cutlery"></i> </span> </a> 
+                          <strong>2. Cooking Style</strong> 
+                        </li>
+                        <li class="three">
+                          <a href="#profileImageTab"  ng-click="showTabs('profileImageTab')" title="Upload your profile picture." onmouseenter="$(this).tooltip('show')"> <span class="round-tabs three"> <i class="glyphicon glyphicon-camera"></i> </span> </a>
+                           <strong>3. Profile Picture</strong> 
+                         </li>
+                      </ul>
+                    </div>
+                      
+                        <div class="tab-content">
+                          <div class="tab-pane fade in active" id="profileAboutTab">
+                            <div class="form_cover" style="margin-top:20px;">
+                              <div class=" marginzero">
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <label for="dishname">PERSONAL INFORMATION: <a ng-href="" class="glyphicon glyphicon-question-sign" title="Enter basic information so we may contact you regarding orders and other queries." onmouseenter="$(this).tooltip('show')"></a></label>
+                                    </div>
+                                    
+                                  </div>
+                                 
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                                    <div class="form-group" style="">
+
+                                      <h3 style="display: inline;">Name: *</h3> <span ng-model="usernameError" ng-show="usernameError" class="alert-danger ">{{usernameError}}</span>
+                                      <div class="wrap_input">
+                                        <input type="text" class="form-control" ng-model="userProfile.regisId.username" id="userProfileregisIdusername" placeholder="Enter your name" ng-keyup="usernameError=''" />
+                                       
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <h3>Moblie Number</h3>
+                                      <div class="wrap_input">
+                                        <input type="text" class="form-control" ng-model="userProfile.regisId.mobile" minlength="11" maxlength="11" placeholder="enter mobile numer"/>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <h3>Email Address: <a href="" class="glyphicon glyphicon-question-sign" title="Adding an email address is not mandatory, but will make it easier for us to update you about orders and other information." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                      <div class="wrap_input">
+                                        <input type="text" class="form-control" ng-model="userProfile.regisId.email" Placeholder="Enter your email address" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <h3>Secondary Phone Number: <a href="" class="glyphicon glyphicon-question-sign" title="Enter an alternate phone number that can be used if you cannot be reached on mobile." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                      <div class="wrap_input">
+                                        <input type="text" minlength="11" maxlength="11" ng-model="userProfile.secmobile" class="form-control" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <h3 style="margin-bottom: 25px; float:left;">Tell foodies about yourself: *<a href="" class="glyphicon glyphicon-question-sign" title="Enter a brief and descriptive introduction about yourself to appeal to foodies in 500 characters or less. Foodies are more likely to order from well made profiles." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                    <strong style="float:right; font-weight:normal !important;">{{500 - userProfile.aboutdetails.length}} characters left</strong>
+                                    <div class="clearfix"></div>
+                                    <div class="wrap_input">
+                                      <textarea class="form-control" ng-trim="false" ng-model="userProfile.aboutdetails" id="userProfileaboutdetails" rows="6" placeholder="e.g. I've been passionate about cooking from a very early age and have not only learnt family secrets and recipes from my mother and grandmother but have also taken cooking courses from popular chefs and experts. I have been catering and running my food business from home since 2010 and specialize in Italian cuisine. According to family and friends, my Spaghetti Bolognese is to die for!" ng-keyup="aboutdetailsError=''" ></textarea>
+                                      <span ng-model="aboutdetailsError" ng-show="aboutdetailsError" class="alert-danger display-block">{{aboutdetailsError}}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form_cover" style="margin-top:20px;">
+                              <div class="marginzero">
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <label for="dishname">BUSINESS INFORMATION: </label>
+                                    </div>
+                                     
+                                  </div>
+                                </div>
+                                <div class="form-group" style="">
+                                  <h3>Home Business Name: <a href="" class="glyphicon glyphicon-question-sign" title="Enter the name of your home business. This will only be applicable to you if you operate under a brand name that is different from your own name." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                  <div class="wrap_input">
+                                    <input type="text" class="form-control" ng-model="userProfile.businessname" placeholder="Enter your business name">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <h3 style="margin-bottom: 25px;">Address/Location: <a href="" class="glyphicon glyphicon-question-sign" title="Enter the address of the location from where we will pick up dishes and deliver them to awaiting foodies." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                    <div class="row">
+                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group" style="">
+                                          <div class="wrap_input">
+                                            <select class="form-control" id="userProfilecity" ng-model="userProfile.city" ng-change="cityError=''">   
+                                              <option value="Karachi" selected>Karachi</option>
+                                            </select>
+                                            <span ng-model="cityError" ng-show="cityError" class="alert-danger display-block">{{cityError}}</span>
+                                             
+                                          </div>
+                                          <div class="wrap_input">
+                                            <input type="text" class="form-control" ng-model="userProfile.address" placeholder="Address" id="userProfileaddress" ng-keyup="addressError=''" />
+                                            <span ng-model="addressError" ng-show="addressError" class="alert-danger display-block">{{addressError}}</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group" style="">
+                                          <div class="wrap_input">
+                                            <select class="form-control" id="userProfileregion" ng-model="userProfile.region" ng-change="regionError=''">
+                                              <option value="">Zone/Region (Please select) *</option>
+                                              <option value="Airport">Airport</option>
+                                              <option value="AKUH">AKUH</option>
+                                              <option value="Ayesha Manzil">Ayesha Manzil</option>
+                                              <option value="Bahadurabad">Bahadurabad</option>
+                                              <option value="Baloch Colony">Baloch Colony</option>
+                                              <option value="Bath Island">Bath Island</option>
+                                              <option value="Burns Road">Burns Road</option>
+                                              <option value="CANTT">CANTT</option>
+                                              <option value="Clifton">Clifton</option>
+                                              <option value="DHA (All phases)">DHA (All phases)</option>
+                                              <option value="Federal B Area">Federal B Area</option>
+                                              <option value="Frere Town">Frere Town</option>
+                                              <option value="Garden East/West">Garden East/West</option>
+                                              <option value="Gizri">Gizri</option>
+                                              <option value="Gulistan-e-Jauhar">Gulistan-e-Jauhar</option>
+                                              <option value="Gulshan-e-Jamal">Gulshan-e-Jamal</option>
+                                              <option value="Gulshan-e-Iqbal">Gulshan-e-Iqbal</option>
+                                              <option value="Guru Mandir">Guru Mandir</option>
+                                              <option value="Hill Park">Hill Park</option>
+                                              <option value="Hyderi">Hyderi</option>
+                                              <option value="II Chundrigar Road">II Chundrigar Road</option>
+                                              <option value="Jamshed Road">Jamshed Road</option>
+                                              <option value="Karimabad">Karimabad</option>
+                                              <option value="Karsaq">Karsaq</option>
+                                              <option value="Kashmir Road">Kashmir Road</option>
+                                              <option value="KDA">KDA</option>
+                                              <option value="Khalid Bun Waleed Road">Khalid Bun Waleed Road</option>
+                                              <option value="Kharadar">Kharadar</option>
+                                              <option value="KMCHS">KMCHS</option>
+                                              <option value="Korangi">Korangi Industrial Area</option>
+                                              <option value="Liaquatabad">Liaquatabad</option>
+                                              <option value="M.T. Khan Road">M.T. Khan Road</option>
+                                              <option value="Malir Cantt">Malir Cantt</option>
+                                              <option value="Mohammad Ali Society">Mohammad Ali Society</option>
+                                              <option value="Muslimabad">Muslimabad</option>
+                                              <option value="Nagan Chowrangi">Nagan Chowrangi</option>
+                                              <option value="National Stadium">National Stadium</option>
+                                              <option value="KMCHS">KMCHS</option>
+                                            </select> 
+                                            <span ng-model="regionError" ng-show="regionError" class="alert-danger display-block">{{regionError}}</span>
+                                          </div>
+                                          <div class="wrap_input">
+                                            <input type="text" class="form-control" ng-model="userProfile.nearlandmark" placeholder="Nearest landmark">
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 25px;">
+                                    <h3>Alternate Contact for Pickup Coordination: <a href="" class="glyphicon glyphicon-question-sign" title="Enter an alternate contact if you have designated someone else to coordinate pickups of your dishes. Leave these boxes blank if you do this yourself." onmouseenter="$(this).tooltip('show')" style="padding-top:0;"></a></h3>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <div class="wrap_input">
+                                        <input type="text" minlength="11" maxlength="11" class="form-control" ng-model="userProfile.altername" Placeholder="Enter Name">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group" style="">
+                                      <div class="wrap_input">
+                                        <input type="text" class="form-control" ng-model="userProfile.altermobile" Placeholder="Enter Contact Number">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group next1" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;">
+                              <a ng-href="" id='btnProfileSaveBtn1' ng-click="updateUserProfile(userProfile , 'first' )" data-toggle="tab" class="btn btn-primary pull-right" >Save and Continue</a> 
+                            </div>
+
+                          </div>
+
+
+                          <div class="tab-pane fade" id="profileCookingTab">
+                            <div class="form_cover" style="margin-top:40px;">
+                              <div class="form-group" >
+                                
+                                <div class="form-group" style="">
+                                  <label>Mastered Cuisines: *<a href="" class="glyphicon glyphicon-question-sign" title="Enter cuisines you cook and consider yourself a master of. You can select multiple cuisines." onmouseenter="$(this).tooltip('show')"></a></label>
+
+                                  <h3>Choose from dropdown and click orange "ADD" button.</h3>
+                                  <div class="wrap_input" style="float:left; width:70%;">
+                                    <select class="form-control" id="selectedCuisineId" ng-model="selectedCuisine" ng-change="selectedCuisineError=''" ng-options="cusine.name for cusine in listOfCuisines">
+                                        <option value="">Select Cuisines</option>
+                                    </select>
+                                    <span ng-model="selectedCuisineError" ng-show="selectedCuisineError" class="alert-danger display-block">{{selectedCuisineError}}</span>
+                                  </div>
+                                  <div class="wrap_input plusbuttonwrap">
+                                    <button class="btn  btn-primary plusbutton" ng-click="AddCuisines()">ADD</button>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                  <div class="row" style="padding-left:15px;" >
+                                       <div class="wrap_input tag" ng-repeat="cuisine in selListOfCuisinesArray">{{cuisine}}
+                                          <div class="delete_image_small" style="width:16px; height:16px;">
+                                            <a ng-href="" ng-click="removeCuisines(cuisine)"></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                   
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group" style="margin-top:25px;">
+                                  <label>Your Specialities: <a href="" class="glyphicon glyphicon-question-sign" title="Enter names of dishes that you are known for and dishes that are loved by your friends and family. If you are entering more than one dish, then please separate them using commas. E.g. Red Peppercorn Fish, Chicken Biryani, French Toast" onmouseenter="$(this).tooltip('show')"></a></label>
+                                  <div class="wrap_input" >
+                                    <input type="text" ng-model="userProfile.speciality" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-group" style="margin-top:25px;">
+                                  <label>Your Food Story: <a href="" class="glyphicon glyphicon-question-sign" title="Tell foodies more about your cooking style and what inspires you to cook in 500 characters or less. Remember that foodies are more likely to order from well made profiles." onmouseenter="$(this).tooltip('show')"></a></label>
+                                  <strong style="float:right; font-weight:normal !important;">{{500-userProfile.foodstory.length}} characters left</strong>
+                                  <div class="wrap_input" >
+                                    <textarea class="form-control" ng-trim="false" ng-model="userProfile.foodstory" rows="3" placeholder="e.g. My grandma is a proud Hyderabadi and is obsessed with the Hyderabadi breakfast. She would invite everyone over once a month and spoil us. She has to be why I got into cooking myself. I love fusing and tweaking classic Hyderabadi and Indian recipes to create something truly special and innovative." maxlength="500"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group next2" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;"> 
+                              <a ng-href="" id='btnProfileSaveBtn2' ng-click="updateUserProfile(userProfile,'second')" data-toggle="tab" class="btn btn-primary pull-right">Save and Continue</a> 
+                            </div>
+
+                          </div>
+                          <div class="tab-pane fade" id="profileImageTab">
+                            <form>
+                            <div class="form_cover" style="margin-top:40px;">
+                              
+                              <div class="row">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                  <label for="dishname">UPLOAD YOUR PROFILE PICTURE: <a href="" class="glyphicon glyphicon-question-sign" title="Add a profile picture. Foodies are more likely to order from profiles with a photo." onmouseenter="$(this).tooltip('show')"></a></label>
+                                    <div class="clearfix"></div>
+                                    <div class="row marginzero">                             
+                                                     
+                                     <div class="wrap_input upload_image"> 
+                                        <img ng-src="{{imageSrc}}" style="width:250px;height:250px;" />                                  
+                                      </div>  
+                                      <input type="file" onchange="angular.element(this).scope().uploadFile(this.files, angular.element(this).scope().userProfile.regisId.mobile )" ng-model="image" ng-file-select="onFileSelect($files)" />                            
+                                    </div> 
+                                     
+                                    <div id="profilePicProgressId" style="width:100%;">
+                                      <span class='glyphicon glyphicon-refresh glyphicon-refresh-animate text-primary'></span> Uploading image, please wait...
+                                    </div>
+                                      <span id="profilePicProgFailedMsgId" class="alert-danger display-block">File upload failed, please try again.
+                                      </span>                           
+                                  </div>
+                                </div>
+                              </div>                   
+                           
+                               <div class="form-group next2" style="margin-bottom:0; padding-top:30px; margin-top:40px; border-top:1px solid #ccc;"> 
+                                  <button id='btnProfilePreview' ng-click="saveShowProfilePreview(userProfile)" class="btn btn-primary pull-right" data-loading-text="Uploading..." autocomplete="off" >Submit and Preview</button> 
+                                </div>
+                              <div class="clearfix"></div>                       
+                            </form>
+                          </div>
+
+                                                  
+                          </div>                       
+                        
+                </div>
+              </div>
+              </div>
+            </section>
+        </div>
+        <!-- ./Content page --> 
+      </div>
+      <!-- ./ Center colunm --> 
+    </div> 
+  </div>
+</div> 

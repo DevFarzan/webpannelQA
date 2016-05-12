@@ -1,0 +1,27 @@
+
+<h2> Dashboard will come here </h2>
+
+<fieldset class="form-group">
+    <label for="formGroupExampleInput">Category</label><br>
+    <select class="dropdown" style="width: 50%;
+                border: 1px solid gray;
+                margin-top: 9px;
+                margin-left: 3px;
+                height: 30px;" ng-model="$parent.category">
+        <option>Personal Traits</option>
+        <option>Career and Work</option>
+        <option>Communication</option>
+        <option>Managerial</option>
+        <option>Leadership</option>
+        <option>Emotional Intelligence</option>
+        <option> Reasoning</option>
+        <option>Intelligence</option>
+        <option>Cultural Fit</option>
+        <option>Communication</option>
+    </select>
+</fieldset>
+<fieldset class="form-group">
+    <label for="formGroupExampleInput">Skill</label>
+    <input type="text" class="form-control" placeholder="Question" style="width: 84%;" ng-model="$parent.skill" required>
+</fieldset>
+<button class="button button-orange" ng-click="categorySkill();">Add Skills</button>

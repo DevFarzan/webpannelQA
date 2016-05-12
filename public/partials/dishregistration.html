@@ -1,0 +1,59 @@
+<header id="header" class="header header-inside"> 
+ 
+<div class="container main-header">
+<div class="myNewnavInside">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home" ng-click="reloadRoute()" scrollup><img src="images/logo.png" style="width: 118px;" / ></a>
+    </div>
+ 
+  </div> 
+</nav>
+</div>
+</div> 
+</header>
+<div class="columns-container" >
+    <div class="container" id="columns">
+        
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/home" ng-click="reloadRoute()" title="Return to Home" onmouseenter="$(this).tooltip('show')" scrollup>Home</a>
+            <span class="navigation-pipe">&nbsp;</span>
+            <span class="navigation_page">Dish Added Successfuly</span>
+        </div>
+         
+        <h1 class="page-heading" style="text-align: center;  padding-bottom: 25px; height: 70px; font-size:50px;">
+            <span class="page-heading-title2" >Thank you for listing your dish!</span>
+        </h1>
+         
+        <div class="page-content">
+            <div class="row" style="padding-left:10%; padding-right:10%;">
+              <div class="col-sm-12" style="text-align:center;">
+                <h3 style="padding-bottom:25px;">
+                  Your dish has been listed successfully. While we are uploading details to our website, you may continue listing other dishes.
+                </h3>
+ 
+                <div class="form-group">
+                  <div class="clearfix"></div>                
+                </div>
+                 <br><br><br>
+                <button type="button" ng-click="showAddDishScreen()" class="btn btn-primary btn-lg" style="margin-bottom:23px;">
+                  List A Dish
+                </button> 
+                <span class="hidden-xs" style="line-height:45px; padding:40px;">OR</span>
+                <button type="button" ng-click="showListDishesScreen()" style="margin-bottom:23px;" class="btn btn-primary btn-lg">
+                  View All Your Dishes
+                </button>
+                
+              </div>                
+            </div>
+        </div>
+    </div>
+</div> 
+<br/><br/><br/> 

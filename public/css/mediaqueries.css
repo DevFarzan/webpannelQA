@@ -1,0 +1,140 @@
+@media (max-width: 480px) {
+	header.clone {
+     display: block !important;  position: inherit;
+	}
+	.main-header {
+	    padding: 0px 0 0px 0;
+	}
+	.main-header .logo {
+	    text-align: center !important;
+	    margin-top: 10px !important;
+	}
+	h1 {
+    	font-size: 32px;
+	}
+	.listyourdish a {
+		float: right;
+	}
+}
+
+@media (max-width: 992px) {
+	header.clone {
+     display: block !important;  position: inherit;
+	}
+	.main-header {
+	    padding: 0px 0 0px 0;
+	}
+	.main-header .logo {
+	    text-align: center !important;
+	    margin-top: 10px !important;
+	}
+	h1 {
+    	font-size: 32px;
+	}
+	.listyourdish a {
+		float: right;
+	}
+
+	.option5 .header_buttons {
+    	top: -50px !important;
+	    text-align: right;
+	    right: -15px;
+	}
+}
+
+@media (min-width: 993px) {
+/*
+	.breadcrumb{
+		margin-top: 80px;
+	}*/
+
+}
+@media screen and (max-height: 320px) {
+ 
+	.option5 .header_buttons {
+    	top: -50px !important;
+	    text-align: right;
+	    right: -15px;
+	} 
+	
+} 
+
+
+@media screen and (max-height: 320px) {
+	.carousel-caption  {
+		bottom: 5% !important;
+	}
+
+	.option5 .header_buttons {
+	    top: 190px !important;
+	}
+}
+/*@media screen and (max-width: 320px) {
+  	 
+	.cusUserInfo {
+		margin-left: 0px; 
+		float: none !important;
+		padding-top: 80px;
+	} 
+	.custdropdown { 
+		float: none !important;
+	}
+}*/
+
+@media screen and (max-width: 375px) {
+  	.option5 .header_buttons {
+	    text-align: center;     
+	}
+	.cusUserInfo {
+		margin-left: 0px; 
+		float: none !important;
+		padding-top: 80px;
+		 
+	} 
+	.custdropdown { 
+		float: none !important;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.option5 .header_buttons {
+	    text-align: right;     
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.logRegBtn{margin-top: 25px; text-align: center;}
+	.carousel-caption h2 {
+		font-size: 14px !important;
+	}
+	.carousel-caption {
+		bottom: 10% !important;
+	}
+	.stick {
+	    position: inherit;
+	    top: 10px;
+	}
+	.filter_close {
+		    position: relative;
+	    float: left;
+	}
+	.becomechef-bt{}
+	.option5 .header_buttons a {
+	    color: #000;
+	    font-size: 16px;
+	    font-weight: bold;
+	    float: right;
+	    line-height: 17px; 
+	    -webkit-border-radius: 15px;
+	    -moz-border-radius: 15px;
+	    border-radius: 15px;
+	    text-align: center;
+	    background-color: rgba(255,255,255,0.7);
+	    width: auto;
+	    display: block;
+	    padding: 5px;
+	    width: inherit;
+	    margin-bottom: 10px;
+	}
+	.becomechef-bt:first-child {margin-top:18px;}
+}

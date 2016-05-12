@@ -1,0 +1,44 @@
+ 
+
+<div class="container">
+  <h2 class="page-heading"> <span class="page-heading-title2">List of all Category</span></h2>  <i class="fa fa-spinner fa-pulse fa-3x" ng-hide="customersArray || customersArray.length"></i>
+  <fieldset class="form-group">
+    <label for="formGroupExampleInput">Search by category name.</label>
+    <input type="text" class="form-control" placeholder="Question" style="width: 50%;" ng-model="query" required >
+  </fieldset>
+<div class="row">  
+  <div class="form-inline">
+    <table class=" table-bordered table-hover table-condensed" style="width:50%;">
+      <thead>
+        <tr>
+          <th style="font-weight: bold;
+    font-size: 20px;">ID</th>
+          <th style="font-weight: bold;
+    font-size: 20px;">Category Name</th>
+          <th style="font-weight: bold;
+    font-size: 20px;">Added On</th>
+          <th style="font-weight: bold;
+    font-size: 20px;">Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr ng-repeat="category in listOfCategory | filter:query">
+        <td class="text-center">
+          {{$index + 1}}</td>
+        </td>
+        <td class="text-center">
+         {{category.category}}
+        </td>
+        <td class="text-center" ng-repeat="Date in category.InsertedDate">
+         {{Date}}
+        </td>
+        <td class="text-center viewSkill" ng-click="viewSkills(category.category)">
+         view Skills
+        </td>
+      </tr> 
+      </tbody>
+    </table> 
+ </div>
+ </div>
+</div>

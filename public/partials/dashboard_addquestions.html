@@ -1,0 +1,43 @@
+ <!-- Content page -->
+<div class="">
+  <h2 class="page-heading"> <span class="page-heading-title2">Add Questions</span></h2>
+
+  <div class="row" ng-hide="allOrdersArray.length > 0 ">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+    </div>
+  </div>
+
+        <fieldset class="form-group">
+        <label for="formGroupExampleInput">Category</label>
+        <select class="dropdown" style="width: 50%;
+                border: 1px solid gray;
+                margin-top: 9px;
+                margin-left: 18px;
+                height: 30px;" ng-model="category">
+            <option>Personal Traits</option>
+            <option>Career and Work</option>
+            <option>Communication</option>
+            <option>Managerial</option>
+            <option>Leadership</option>
+            <option>Emotional Intelligence</option>
+            <option> Reasoning</option>
+            <option>Intelligence</option>
+            <option>Cultural Fit</option>
+            <option>Communication</option>
+        </select>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="formGroupExampleInput">Skill</label>
+            <input type="text" class="form-control" placeholder="Question" style="width: 84%;" ng-model="skill" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="formGroupExampleInput">Question</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Question" style="width: 84%;" ng-model="Question">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="formGroupExampleInput2">Answers</label>
+            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Answer" style="width: 84%;" ng-model="Answer"></textarea>
+        </fieldset>
+        <button class="button button-orange" ng-click="addquestionanswer();">Add Questions & Answer</button>
+
+  </div> 
